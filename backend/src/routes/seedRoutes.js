@@ -1,0 +1,462 @@
+const express = require('express');
+const router = express.Router();
+const { getModels } = require('../models/modelProvider');
+
+const seedData = {
+  adminUser: {
+    name: 'AIT-CSE Admin / CR',
+    email: 'admin@college.edu',
+    password: 'admin123',
+    role: 'admin'
+  },
+  rooms: [
+    // Block D1 - AIT-CSE Core & Department Hub
+    {
+      roomNumber: 'D1-101',
+      building: 'Block D1',
+      floor: 1,
+      capacity: 75,
+      type: 'Lecture Hall',
+      schedule: [
+        { dayOfWeek: 'Monday', startTime: '09:00', endTime: '10:30', course: '22AIT-201: Advanced Data Structures', faculty: 'Dr. Rohit Sharma' },
+        { dayOfWeek: 'Monday', startTime: '11:00', endTime: '12:30', course: '22AIT-210: Database Engineering & SQL', faculty: 'Dr. Naveen Kumar' },
+        { dayOfWeek: 'Tuesday', startTime: '10:00', endTime: '11:30', course: '22AIT-301: Full Stack Web Architecture', faculty: 'Prof. Karan Gill' },
+        { dayOfWeek: 'Wednesday', startTime: '09:00', endTime: '10:30', course: '22AIT-204: Object Oriented System Design', faculty: 'Er. Pooja Sharma' },
+        { dayOfWeek: 'Thursday', startTime: '11:00', endTime: '12:30', course: '22AIT-312: Artificial Intelligence Foundations', faculty: 'Dr. Preeti Aggarwal' },
+        { dayOfWeek: 'Friday', startTime: '09:00', endTime: '10:30', course: '22AIT-201: Algorithms Tutorial', faculty: 'Dr. Rohit Sharma' }
+      ]
+    },
+    {
+      roomNumber: 'D1-105',
+      building: 'Block D1',
+      floor: 1,
+      capacity: 60,
+      type: 'Classroom',
+      schedule: [
+        { dayOfWeek: 'Monday', startTime: '13:30', endTime: '15:00', course: '22AIT-214: Discrete Math & Logic', faculty: 'Dr. Rohit Sharma' },
+        { dayOfWeek: 'Wednesday', startTime: '13:30', endTime: '15:00', course: '22AIT-208: Computer Organization & Arch', faculty: 'Prof. Karan Gill' }
+      ]
+    },
+    {
+      roomNumber: 'D1-204',
+      building: 'Block D1',
+      floor: 2,
+      capacity: 80,
+      type: 'Lecture Hall',
+      schedule: [
+        { dayOfWeek: 'Tuesday', startTime: '09:00', endTime: '10:30', course: '22AIT-305: Cloud Infrastructure & DevOps', faculty: 'Dr. Naveen Kumar' },
+        { dayOfWeek: 'Thursday', startTime: '13:30', endTime: '15:00', course: '22AIT-318: Cyber Defense & Networks', faculty: 'Er. Pooja Sharma' }
+      ]
+    },
+    {
+      roomNumber: 'D1-210',
+      building: 'Block D1',
+      floor: 2,
+      capacity: 50,
+      type: 'Classroom',
+      schedule: [
+        // Kept open for study/chill gap demonstration
+        { dayOfWeek: 'Friday', startTime: '15:00', endTime: '16:30', course: 'AIT Mentorship & Doubt Clearing', faculty: 'Er. Pooja Sharma' }
+      ]
+    },
+    {
+      roomNumber: 'D1-305',
+      building: 'Block D1',
+      floor: 3,
+      capacity: 65,
+      type: 'Classroom',
+      schedule: [
+        { dayOfWeek: 'Monday', startTime: '10:00', endTime: '11:30', course: '22AIT-320: Theory of Computation', faculty: 'Dr. Rohit Sharma' },
+        { dayOfWeek: 'Wednesday', startTime: '11:00', endTime: '12:30', course: '22AIT-325: Operating Systems Internals', faculty: 'Dr. Vikas Singla' }
+      ]
+    },
+    {
+      roomNumber: 'D1-402',
+      building: 'Block D1',
+      floor: 4,
+      capacity: 55,
+      type: 'Classroom',
+      schedule: [] // Open study space on 4th floor
+    },
+
+    // Block D2 - AIT Cloud Computing & Big Data
+    {
+      roomNumber: 'D2-102',
+      building: 'Block D2',
+      floor: 1,
+      capacity: 70,
+      type: 'Lecture Hall',
+      schedule: [
+        { dayOfWeek: 'Monday', startTime: '11:00', endTime: '12:30', course: '22AIT-305: Cloud Native Architecture (AWS/GCP)', faculty: 'Dr. Naveen Kumar' },
+        { dayOfWeek: 'Tuesday', startTime: '13:30', endTime: '15:00', course: '22AIT-308: Big Data Analytics & Spark', faculty: 'Dr. Naveen Kumar' },
+        { dayOfWeek: 'Thursday', startTime: '09:00', endTime: '10:30', course: '22AIT-301: MERN Stack Architecture', faculty: 'Prof. Karan Gill' }
+      ]
+    },
+    {
+      roomNumber: 'D2-208',
+      building: 'Block D2',
+      floor: 2,
+      capacity: 55,
+      type: 'Classroom',
+      schedule: [
+        { dayOfWeek: 'Wednesday', startTime: '10:00', endTime: '11:30', course: '22AIT-310: Microservices & Kubernetes', faculty: 'Dr. Naveen Kumar' },
+        { dayOfWeek: 'Friday', startTime: '11:00', endTime: '12:30', course: '22AIT-204: Java Design Patterns', faculty: 'Er. Pooja Sharma' }
+      ]
+    },
+    {
+      roomNumber: 'D2-312',
+      building: 'Block D2',
+      floor: 3,
+      capacity: 50,
+      type: 'Seminar Hall',
+      schedule: [] // Silent study / discussion hall
+    },
+
+    // Block D3 - AIT AI, Machine Learning & Cyber Security
+    {
+      roomNumber: 'D3-104',
+      building: 'Block D3',
+      floor: 1,
+      capacity: 65,
+      type: 'Classroom',
+      schedule: [
+        { dayOfWeek: 'Tuesday', startTime: '11:00', endTime: '12:30', course: '22AIT-312: Machine Learning Algorithms', faculty: 'Dr. Preeti Aggarwal' },
+        { dayOfWeek: 'Thursday', startTime: '14:00', endTime: '15:30', course: '22AIT-315: Deep Learning & Neural Nets', faculty: 'Dr. Preeti Aggarwal' }
+      ]
+    },
+    {
+      roomNumber: 'D3-206',
+      building: 'Block D3',
+      floor: 2,
+      capacity: 60,
+      type: 'Classroom',
+      schedule: [
+        { dayOfWeek: 'Monday', startTime: '15:00', endTime: '16:30', course: '22AIT-318: Network Security & Ethical Hacking', faculty: 'Er. Pooja Sharma' },
+        { dayOfWeek: 'Wednesday', startTime: '14:00', endTime: '15:30', course: '22AIT-322: Natural Language Processing', faculty: 'Dr. Preeti Aggarwal' }
+      ]
+    },
+    {
+      roomNumber: 'D3-310',
+      building: 'Block D3',
+      floor: 3,
+      capacity: 45,
+      type: 'Classroom',
+      schedule: [] // Always vacant for students to chill
+    },
+
+    // Block D4 - AIT Advanced Workstations & Capstone Labs
+    {
+      roomNumber: 'D4-001',
+      building: 'Block D4',
+      floor: 0,
+      capacity: 90,
+      type: 'Lecture Hall',
+      schedule: [
+        { dayOfWeek: 'Wednesday', startTime: '11:00', endTime: '12:30', course: '22AIT-401: Capstone Project Phase 1 Briefing', faculty: 'Prof. Karan Gill' }
+      ]
+    },
+    {
+      roomNumber: 'D4-105',
+      building: 'Block D4',
+      floor: 1,
+      capacity: 50,
+      type: 'Classroom',
+      schedule: [] // Open space
+    },
+    {
+      roomNumber: 'D4-208',
+      building: 'Block D4',
+      floor: 2,
+      capacity: 60,
+      type: 'Classroom',
+      schedule: [
+        { dayOfWeek: 'Friday', startTime: '14:00', endTime: '16:00', course: 'AIT Industry Expert Tech Talk', faculty: 'Dr. Vikas Singla' }
+      ]
+    },
+
+    // Central Library (Knowledge Resource Centre)
+    {
+      roomNumber: 'LIB-G1',
+      building: 'Central Library',
+      floor: 0,
+      capacity: 150,
+      type: 'Seminar Hall',
+      schedule: [] // Silent study hall
+    }
+  ],
+  faculty: [
+    {
+      name: 'Dr. Rohit Sharma',
+      designation: 'Associate Professor & Academic Coordinator (AIT-CSE)',
+      department: 'Apex Institute of Technology - CSE',
+      cabinNumber: 'Cabin D1-312',
+      building: 'Block D1',
+      floor: 3,
+      consultationHours: '02:00 PM - 04:00 PM (Monday to Thursday)',
+      email: 'rohit.ait@cumail.in',
+      phone: '+91 98765 11101',
+      subjectsTaught: ['Advanced Data Structures', 'Algorithms Design', 'Discrete Math']
+    },
+    {
+      name: 'Dr. Vikas Singla',
+      designation: 'Head of Department (HOD) - AIT CSE',
+      department: 'Apex Institute of Technology - CSE',
+      cabinNumber: 'HOD Suite D1-201',
+      building: 'Block D1',
+      floor: 2,
+      consultationHours: '11:30 AM - 01:00 PM (Tuesday & Friday)',
+      email: 'hod.aitcse@cumail.in',
+      phone: '+91 98765 11102',
+      subjectsTaught: ['Operating Systems Internals', 'Distributed Systems', 'Software Architectures']
+    },
+    {
+      name: 'Er. Pooja Sharma',
+      designation: 'Assistant Professor & 3rd Year Class Mentor (AIT-CSE)',
+      department: 'Apex Institute of Technology - CSE',
+      cabinNumber: 'Cabin D2-114',
+      building: 'Block D2',
+      floor: 1,
+      consultationHours: '03:00 PM - 05:00 PM (Daily)',
+      email: 'pooja.ait@cumail.in',
+      phone: '+91 98765 11103',
+      subjectsTaught: ['Object Oriented System Design (Java)', 'Cyber Defense', 'Network Security']
+    },
+    {
+      name: 'Dr. Naveen Kumar',
+      designation: 'Cloud Computing & DevOps Lead (AIT)',
+      department: 'AIT - Cloud & Big Data',
+      cabinNumber: 'Cabin D2-308',
+      building: 'Block D2',
+      floor: 3,
+      consultationHours: '01:30 PM - 03:30 PM (Daily)',
+      email: 'naveen.cloud@cumail.in',
+      phone: '+91 98765 11104',
+      subjectsTaught: ['Cloud Native Architecture (AWS/GCP)', 'Database Engineering', 'Microservices & K8s']
+    },
+    {
+      name: 'Dr. Preeti Aggarwal',
+      designation: 'Associate Professor & AI/ML Specialization Lead (AIT)',
+      department: 'AIT - Artificial Intelligence & Data Science',
+      cabinNumber: 'Cabin D3-205',
+      building: 'Block D3',
+      floor: 2,
+      consultationHours: '10:00 AM - 12:00 PM (Mon, Wed, Fri)',
+      email: 'preeti.ai@cumail.in',
+      phone: '+91 98765 11105',
+      subjectsTaught: ['Machine Learning', 'Deep Learning & Neural Networks', 'Natural Language Processing']
+    },
+    {
+      name: 'Prof. Karan Gill',
+      designation: 'Assistant Professor & Industry Capstone Project Lead',
+      department: 'Apex Institute of Technology - CSE',
+      cabinNumber: 'Cabin D4-108',
+      building: 'Block D4',
+      floor: 1,
+      consultationHours: '11:00 AM - 01:00 PM (Daily)',
+      email: 'karan.projects@cumail.in',
+      phone: '+91 98765 11106',
+      subjectsTaught: ['Full Stack Web Development (MERN)', 'Capstone Project Phase 1 & 2']
+    },
+    {
+      name: 'Mr. Rajneesh Sharma',
+      designation: 'Controller of Examinations (COE Desk - AIT)',
+      department: 'Examination Cell',
+      cabinNumber: 'COE Counter D1-002',
+      building: 'Block D1',
+      floor: 0,
+      consultationHours: '10:00 AM - 01:00 PM & 02:30 PM - 04:30 PM',
+      email: 'coe.ait@cumail.in',
+      phone: '+91 98765 11107',
+      subjectsTaught: []
+    },
+    {
+      name: 'Ms. Manpreet Kaur',
+      designation: 'Senior Student Care Officer (AIT Student Care Desk)',
+      department: 'Student Care Department (SCD)',
+      cabinNumber: 'AIT Helpdesk Counter, Foyer',
+      building: 'Block D1',
+      floor: 0,
+      consultationHours: '09:00 AM - 05:00 PM (Continuous Helpdesk)',
+      email: 'studentcare.ait@cumail.in',
+      phone: '+91 98765 11108',
+      subjectsTaught: []
+    }
+  ],
+  issues: [
+    {
+      category: 'Academic',
+      issueTitle: 'CUIMS Attendance Shortage (<75%) & Medical Leave Exemption (AIT-CSE)',
+      description: 'Facing attendance freeze or below 75% threshold on CUIMS for AIT-CSE courses due to medical illness, hospitalization, or hackathon representation.',
+      responsibleAuthority: 'AIT Academic Coordinator & Class Mentor',
+      designatedPerson: 'Dr. Rohit Sharma / Er. Pooja Sharma',
+      cabinNumber: 'Cabin D1-312 / Cabin D2-114',
+      building: 'Block D1',
+      floor: 3,
+      visitingHours: '02:00 PM - 04:00 PM (Monday to Thursday)',
+      actionSteps: [
+        'Collect valid doctor fitness certificate, pharmacy bills, and hospital discharge slip.',
+        'Download the CUIMS Medical Exemption Undertaking form from your student portal.',
+        'Get preliminary verification and signature from your Class Mentor Er. Pooja Sharma in Cabin D2-114.',
+        'Submit the signed application with medical proofs to AIT Academic Coordinator Dr. Rohit Sharma (Cabin D1-312) within 7 days of resuming classes.'
+      ],
+      requiredDocuments: [
+        'Doctor Medical Certificate with registration number',
+        'Hospital Discharge Summary / Prescription slips',
+        'CUIMS Medical Undertaking Form signed by Parent',
+        'Physical CU Student ID Card photocopy'
+      ]
+    },
+    {
+      category: 'Administrative',
+      issueTitle: 'AIT High-Performance Workstation & Mac Lab Access Permission',
+      description: 'Requesting off-hours access or account creation for GPU workstations, Apple Mac labs, or AI research clusters in Block D4.',
+      responsibleAuthority: 'AIT Specialized Labs In-charge & Systems Admin',
+      designatedPerson: 'Prof. Karan Gill / Systems Admin',
+      cabinNumber: 'Cabin D4-108 / Room D4-102',
+      building: 'Block D4',
+      floor: 1,
+      visitingHours: '11:00 AM - 01:00 PM (Mon - Fri)',
+      actionSteps: [
+        'Fill out the AIT Research Lab Access Request form specifying course or project title.',
+        'Obtain project mentor approval signature.',
+        'Submit to Prof. Karan Gill in Cabin D4-108.',
+        'System credentials and biometric / RFID door access will be issued in Room D4-102.'
+      ],
+      requiredDocuments: [
+        'AIT Lab Requisition Form with Project Guide Signature',
+        'Valid CU Student ID Card',
+        'Synopsis / Git Repo link of ongoing project'
+      ]
+    },
+    {
+      category: 'Mentorship & Career',
+      issueTitle: 'AIT Industry Capstone Project Guide Allocation & Internship NOC',
+      description: 'Assigning industry project mentors, capstone approvals, or obtaining university NOC for off-campus summer internships.',
+      responsibleAuthority: 'AIT Capstone In-charge & HOD AIT-CSE',
+      designatedPerson: 'Prof. Karan Gill / Dr. Vikas Singla',
+      cabinNumber: 'Cabin D4-108 / HOD Suite D1-201',
+      building: 'Block D4',
+      floor: 1,
+      visitingHours: '11:00 AM - 01:00 PM & 03:00 PM - 04:30 PM',
+      actionSteps: [
+        'Bring the official company offer letter clearly stating stipend, work location, and internship duration.',
+        'Fill out the AIT 6-Month / Summer Training Undertaking form.',
+        'Get approval from Capstone Lead Prof. Karan Gill in Cabin D4-108.',
+        'Submit to HOD Dr. Vikas Singla in Suite D1-201 for final university stamped NOC.'
+      ],
+      requiredDocuments: [
+        'Company Offer Letter on Official Letterhead',
+        'Parent Undertaking Letter',
+        'CUIMS Current CGPA Grade Sheet'
+      ]
+    },
+    {
+      category: 'Examination',
+      issueTitle: 'Re-appear / Backlog Exam Form Clearance & Hall Ticket Unlock',
+      description: 'Issues with re-appear exam registration, clash in semester timetable, or hall ticket locked on CUIMS due to fee verification.',
+      responsibleAuthority: 'Controller of Examinations (COE) Desk',
+      designatedPerson: 'Mr. Rajneesh Sharma (COE)',
+      cabinNumber: 'COE Counter D1-002',
+      building: 'Block D1',
+      floor: 0,
+      visitingHours: '10:00 AM - 01:00 PM & 02:30 PM - 04:30 PM',
+      actionSteps: [
+        'Check your Re-appear exam fee payment status on CUIMS.',
+        'If fee was deducted but hall ticket is locked, print bank transaction UTR proof.',
+        'Visit COE Counter D1-002 on the Ground Floor of Block D1.',
+        'Submit payment proof for immediate electronic clearance and hall ticket stamp.'
+      ],
+      requiredDocuments: [
+        'Bank Fee Payment Receipt / Challan',
+        'Exam Registration Printout',
+        'Previous Semester Grade Sheet'
+      ]
+    },
+    {
+      category: 'Administrative',
+      issueTitle: 'CUIMS Password Reset & Campus Wi-Fi (802.1x) MAC Binding',
+      description: 'Resetting forgotten credentials for CUIMS portal, Blackboard LMS, or registering laptop/phone MAC address for high-speed campus Wi-Fi.',
+      responsibleAuthority: 'AIT IT Helpdesk & Network Operations',
+      designatedPerson: 'AIT Network Admin',
+      cabinNumber: 'Room D1-005 (IT Helpdesk)',
+      building: 'Block D1',
+      floor: 0,
+      visitingHours: '09:00 AM - 05:00 PM (Continuous Desk)',
+      actionSteps: [
+        'Visit Room D1-005 on the ground floor of Block D1.',
+        'Present your physical CU Student ID card and state your University Roll Number.',
+        'Verify OTP on registered mobile number.',
+        'Credentials will be reset immediately and Wi-Fi MAC address registered.'
+      ],
+      requiredDocuments: [
+        'Physical Chandigarh University Student ID Card'
+      ]
+    },
+    {
+      category: 'Administrative',
+      issueTitle: 'Bonafide / Character Certificate for Loan or Passport (AIT)',
+      description: 'Needed for educational loans, passport verification, metro/bus student passes, or scholarship applications.',
+      responsibleAuthority: 'AIT Student Care Desk (SCD)',
+      designatedPerson: 'Ms. Manpreet Kaur',
+      cabinNumber: 'SCD Helpdesk Foyer',
+      building: 'Block D1',
+      floor: 0,
+      visitingHours: '09:00 AM - 04:30 PM (All working days)',
+      actionSteps: [
+        'Apply online on CUIMS under Student Requests > Certificate Application.',
+        'Ensure semester tuition fees have no pending dues in the accounts tab.',
+        'Take request slip to the AIT Student Care Desk in Block D1 Foyer.',
+        'Collect stamped original certificate within 24 hours from Counter 1.'
+      ],
+      requiredDocuments: [
+        'CUIMS Online Request Slip',
+        'Physical CU Student ID Card',
+        'Latest Semester Fee Receipt copy'
+      ]
+    }
+  ]
+};
+
+// Seed function
+async function performSeed() {
+  const { Room, Faculty, IssueRule, User } = getModels();
+  
+  await Room.deleteMany({});
+  await Faculty.deleteMany({});
+  await IssueRule.deleteMany({});
+
+  const existingAdmin = await User.findOne({ email: seedData.adminUser.email });
+  if (!existingAdmin) {
+    await User.create(seedData.adminUser);
+  }
+
+  const insertedRooms = await Room.insertMany(seedData.rooms);
+  const insertedFaculty = await Faculty.insertMany(seedData.faculty);
+  const insertedIssues = await IssueRule.insertMany(seedData.issues);
+
+  return {
+    roomsCount: insertedRooms.length,
+    facultyCount: insertedFaculty.length,
+    issuesCount: insertedIssues.length,
+    adminEmail: seedData.adminUser.email
+  };
+}
+
+// @route   POST /api/seed
+// @desc    Seed or reset database with sample campus data
+// @access  Public (for demo & testing)
+router.post('/', async (req, res) => {
+  try {
+    const result = await performSeed();
+    res.json({
+      success: true,
+      message: 'Chandigarh University AIT-CSE (D-Blocks) campus data successfully seeded and ready to use!',
+      counts: result
+    });
+  } catch (error) {
+    console.error('Seed error:', error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+module.exports = { router, seedData, performSeed };

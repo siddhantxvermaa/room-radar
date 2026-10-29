@@ -1,0 +1,11 @@
+{
+  "name": "room-radar",
+  "version": "1.0.0",
+  "description": "RoomRadar — Campus Empty Classroom & Student Helpdesk Hub for Chandigarh University (AIT-CSE)",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install",
+    "start": "cd backend && node src/server.js",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  }
+}
