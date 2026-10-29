@@ -1,159 +1,87 @@
 # RoomRadar — Campus Empty Classroom & Student Helpdesk Hub
+### Chandigarh University &bull; Apex Institute of Technology (AIT-CSE &bull; D-Blocks)
 
 > **Full-Stack Development Final Practical Project (MERN Stack)**  
-> **Backend:** Node.js, Express.js, MongoDB Atlas (Mongoose), JWT, Bcrypt  
-> **Frontend:** React 18, Vite, Tailwind CSS, Lucide Icons  
+> **Backend:** Node.js, Express.js, Zero-Setup Embedded JSON DB + MongoDB Mongoose Ready, JWT, Bcrypt  
+> **Frontend:** React 18, Vite, Tailwind CSS, Lucide Icons, Cyber-Dark UI  
 
 ---
 
 ## 📌 Problem Statement & Solution
 
 **The Campus Struggle:**  
-Whenever college students have a free lecture slot or an unscheduled gap between classes, they spend 15–30 minutes roaming around academic blocks looking for an empty classroom where they can sit, study, charge their laptop, or chill with teammates. Additionally, when students face issues (attendance shortage, backlog exam registration, bonafide requests, project approvals), they have no idea which professor or coordinator sits in which cabin or what documents to carry.
+Whenever students in AIT-CSE (D-Blocks) have an empty gap in their schedule or a cancelled lecture, they wander around blocks D1, D2, D3, and D4 looking for a vacant classroom to study, work on laptops, or chill. Furthermore, when students face attendance shortages on CUIMS, need medical exemptions, want Mac lab permissions, or need capstone internship NOCs, they have no idea which cabin or coordinator to approach.
 
 **The Solution — RoomRadar:**  
-An interactive campus web application where students simply pick their current location (e.g., *Block B, 2nd Floor*) and the platform instantly ranks and displays the **nearest currently vacant classrooms** based on live weekly schedules and walking proximity. It also includes an **Official Faculty Cabin Directory** and a **Smart Issue Resolver Wizard** that guides students step-by-step to the exact cabin and designated authority for any grievance.
+An interactive campus web app tailored for **Chandigarh University AIT-CSE D-Blocks**:
+1. Students select their current block (`Block D1`, `Block D2`, `Block D3`, `Block D4`) and floor.
+2. The platform instantly ranks and displays the **nearest currently vacant classrooms** based on live weekly schedules and walking proximity.
+3. Includes an **Always-Visible Master Campus Clock** with live college period tracking (`Period 1`, `Period 2`, `Lunch Recess`, `Period 3`, `Period 4`).
+4. Houses the **Official AIT-CSE Faculty Cabin Directory** and **Student Care Helpdesk Router**.
 
 ---
 
 ## 🚀 Key Features
 
-### 1. Nearest Vacant Classroom Finder
-- **Proximity Ranking Engine:** Ranks classrooms by walking proximity based on student's current Building and Floor (`Same floor (0 walking penalty) > Adjacent floor > Adjacent block`).
-- **Live Vacancy Computation:** Compares current system day and time against each classroom's weekly master timetable.
-- **Crowdsourced Status Check-in:** Students can mark a room as "Occupied" or "Empty" on the fly with a temporary override timer.
-- **Minimalist Room Cards:** Highlights Room Number, Building, Floor, and Current Vacancy badge.
-
-### 2. Faculty Cabin & Office Directory
-- Searchable directory of professors, HODs, coordinators, and mentors.
-- Lists exact cabin numbers, building, floor, official consultation/visiting hours, email, phone, and subjects taught.
-- Filterable by academic department and building.
-
-### 3. Student Helpdesk Wizard ("Where Should I Go?")
-- Problem-to-person guidance for common college issues:
-  - Attendance Shortage & Medical Exemption (Academic Coordinator)
-  - Bonafide & Character Certificates (Student Welfare Cell)
-  - Backlog Exam Registration & Hall Tickets (Controller of Examinations)
-  - Summer Internship NOC & Project Guide Allocation (HOD & Coordinator)
-  - Wi-Fi & College Portal Credentials Reset (IT Helpdesk)
-  - Fee Installment & Scholarship Forms (Accounts Section)
-- Displays exact office cabin, designated officer, visiting hours, step-by-step action plan, and checklist of documents to carry.
-
-### 4. Admin & Class Representative (CR) Portal
-- **JWT-Protected Dashboard:** Secure login for CRs and administrators.
-- **Classroom & Timetable Management:** Add new rooms, edit weekly timetable slots (Day of week, Start time, End time, Course, Faculty), and remove rooms.
-- **Faculty Directory Management:** Add and update faculty cabins and visiting hours.
-- **One-Click Demo Data Seed:** Pre-populates the database with realistic campus data across 5 buildings for seamless practical exam evaluation.
+* **Live Master Campus Clock ([`CampusLiveClock.jsx`](frontend/src/components/CampusLiveClock.jsx)):** Real-time ticking clock (`HH:mm:ss`), calendar date, active academic period indicator, and expandable college bell schedule.
+* **Proximity Vacancy Engine ([`proximity.js`](backend/src/utils/proximity.js)):** Ranks classrooms by walking proximity across the D-Block quadrangle (`Same Floor > 1 Floor Up/Down > Adjacent D-Block`).
+* **Zero-Setup Database ([`embeddedStore.js`](backend/src/config/embeddedStore.js)):** Automatically pre-loads all 16 AIT-CSE rooms, 8 faculty cabins, and 6 CUIMS guidance workflows into a local JSON database. No external database or cloud setup is required.
+* **Admin / CR Dashboard ([`AdminDashboardPage.jsx`](frontend/src/pages/AdminDashboardPage.jsx)):** JWT-authenticated control center to manage rooms, timetable lecture slots, and faculty cabins. Default credentials: `admin@college.edu` / `admin123`.
 
 ---
 
-## 🛠️ Project Structure
+## ⚡ Quick Start Guide (Local)
 
-```
-room-radar/
-├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   │   └── db.js                 # MongoDB connection & diagnostics
-│   │   ├── models/
-│   │   │   ├── Room.js               # Room & timetable schema + vacancy logic
-│   │   │   ├── Faculty.js            # Faculty cabin schema
-│   │   │   ├── IssueRule.js          # Student grievance routing schema
-│   │   │   └── User.js               # Admin/CR user schema with bcrypt
-│   │   ├── routes/
-│   │   │   ├── roomRoutes.js         # /api/rooms & /api/rooms/nearest
-│   │   │   ├── facultyRoutes.js      # /api/faculty
-│   │   │   ├── issueRoutes.js        # /api/issues
-│   │   │   ├── authRoutes.js         # /api/auth (JWT login & register)
-│   │   │   └── seedRoutes.js         # /api/seed (instant demo dataset)
-│   │   ├── middleware/
-│   │   │   └── authMiddleware.js     # JWT token verification
-│   │   ├── utils/
-│   │   │   └── proximity.js          # Campus walking proximity algorithm
-│   │   └── server.js                 # Express server & auto-seed bootstrapper
-│   ├── .env                          # Environment variables
-│   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar.jsx            # Top navigation & demo seed button
-│   │   │   ├── LocationSelector.jsx  # Building and floor picker
-│   │   │   ├── RoomCard.jsx          # Vacant room card
-│   │   │   ├── FacultyCard.jsx       # Faculty cabin card
-│   │   │   └── IssueWizard.jsx       # Step-by-step problem solver
-│   │   ├── pages/
-│   │   │   ├── RoomFinderPage.jsx    # Live nearest room finder
-│   │   │   ├── FacultyDirectoryPage.jsx # Searchable faculty directory
-│   │   │   ├── HelpdeskPage.jsx      # Student issue resolver
-│   │   │   └── AdminDashboardPage.jsx# Admin management portal
-│   │   ├── services/
-│   │   │   └── api.js                # Axios API client & interceptors
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── index.html
-│   ├── tailwind.config.js
-│   └── package.json
-├── run-backend.bat                   # One-click Windows backend runner
-├── run-frontend.bat                  # One-click Windows frontend runner
-└── README.md
-```
-
----
-
-## ⚡ Quick Start Guide
-
-### Step 1: Configure MongoDB Atlas
-1. Open `backend/.env`
-2. Update the `MONGO_URI` with your MongoDB Atlas connection string:
-   ```env
-   PORT=5000
-   MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/room_radar?retryWrites=true&w=majority
-   JWT_SECRET=room_radar_super_secret_jwt_key_2026
-   ```
-   *(Note: You can also use a local MongoDB instance `mongodb://127.0.0.1:27017/room_radar` if installed).*
-
-### Step 2: Start the Backend Server
-In a terminal:
-```bash
+### 1. Run the Backend
+Double-click `run-backend.bat` or run:
+```powershell
 cd backend
 npm.cmd run dev
 ```
-*The server starts on `http://localhost:5000` and will automatically seed the initial campus dataset if the database is empty!*
+*Starts on `http://localhost:5000` with the embedded database active and auto-seeded.*
 
-### Step 3: Start the Frontend Application
-In a separate terminal:
-```bash
+### 2. Run the Frontend
+Double-click `run-frontend.bat` or run:
+```powershell
 cd frontend
 npm.cmd run dev
 ```
-*Open your browser at `http://localhost:3000` (or `http://localhost:5173`).*
+*Opens on `http://localhost:3000`.*
 
 ---
 
-## 🔑 Default Admin Credentials for Viva Evaluation
+## 🌐 How to Host This Live on the Internet
 
-When demonstrating the Admin Portal to your examiner:
-- **Email:** `admin@college.edu`
-- **Password:** `admin123`
-- **Role:** Administrator / CR
+### Method 1: 100% Free Cloud Deployment on Render.com (Recommended)
+You can deploy both frontend and backend together as a single unified service on Render for free:
+
+1. **Push your code to GitHub:**
+   ```powershell
+   git remote add origin https://github.com/YOUR_USERNAME/room-radar.git
+   git branch -M main
+   git push -u origin main
+   ```
+2. Go to **[Render.com](https://render.com)** and sign in with GitHub.
+3. Click **New +** &rarr; **Web Service**.
+4. Select your `room-radar` repository.
+5. Set the following build settings:
+   * **Name:** `roomradar-ait`
+   * **Region:** Singapore or Frankfurt
+   * **Branch:** `main`
+   * **Runtime:** `Node`
+   * **Build Command:** `npm run build`
+   * **Start Command:** `npm run start`
+6. Click **Deploy Web Service**.
+7. In ~2 minutes, Render gives you a public HTTPS URL (e.g., `https://roomradar-ait.onrender.com`) that anyone can open from their phone or laptop!
 
 ---
 
-## 📡 REST API Documentation
+### Method 2: Instant 15-Second Public Tunnel (Perfect for Viva Evaluation in Lab)
+If you want to demo your running project directly on your phone or your examiner's tablet right now:
 
-| Method | Endpoint | Description | Access |
-| :--- | :--- | :--- | :--- |
-| `GET` | `/api/health` | Healthcheck & server status | Public |
-| `GET` | `/api/rooms/nearest?building=Block+B&floor=2` | Nearest rooms ranked by proximity & vacancy | Public |
-| `GET` | `/api/rooms` | All classrooms | Public |
-| `POST` | `/api/rooms/:id/toggle-status` | Student crowdsourced status toggle | Public |
-| `POST` | `/api/rooms` | Create new classroom | Private (Admin) |
-| `PUT` | `/api/rooms/:id` | Update room or timetable slots | Private (Admin) |
-| `DELETE` | `/api/rooms/:id` | Delete classroom | Private (Admin) |
-| `GET` | `/api/faculty` | Get faculty list (with search, department filters) | Public |
-| `POST` | `/api/faculty` | Add faculty cabin entry | Private (Admin) |
-| `DELETE` | `/api/faculty/:id` | Remove faculty | Private (Admin) |
-| `GET` | `/api/issues` | Get all student issue guides | Public |
-| `POST` | `/api/issues` | Create guidance rule | Private (Admin) |
-| `POST` | `/api/auth/login` | Login and receive JWT token | Public |
-| `POST` | `/api/seed` | Reset & re-seed realistic demo data | Public (Demo) |
+1. Start both backend and frontend locally.
+2. In a new PowerShell window, run:
+   ```powershell
+   npx localtunnel --port 5000
+   ```
+3. It will output an instant live public link (e.g. `https://calm-puma-82.loca.lt`) that connects directly to your live app!

@@ -1,7 +1,7 @@
 {
   "rooms": [
     {
-      "_id": "local_gab5fwcommvtiug2i",
+      "_id": "local_ziiz0h72tmvtiv19w",
       "capacity": 75,
       "type": "Lecture Hall",
       "schedule": [
@@ -55,11 +55,11 @@
       "roomNumber": "D1-101",
       "building": "Block D1",
       "floor": 1,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_sruzgwqjhmvtiug2i",
+      "_id": "local_tq9myci9cmvtiv19w",
       "capacity": 60,
       "type": "Classroom",
       "schedule": [
@@ -85,11 +85,11 @@
       "roomNumber": "D1-105",
       "building": "Block D1",
       "floor": 1,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_q32woow99mvtiug2i",
+      "_id": "local_seoqgxll3mvtiv19w",
       "capacity": 80,
       "type": "Lecture Hall",
       "schedule": [
@@ -115,11 +115,11 @@
       "roomNumber": "D1-204",
       "building": "Block D1",
       "floor": 2,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_zo4z61hjomvtiug2i",
+      "_id": "local_c63u96ys6mvtiv19w",
       "capacity": 50,
       "type": "Classroom",
       "schedule": [
@@ -138,11 +138,11 @@
       "roomNumber": "D1-210",
       "building": "Block D1",
       "floor": 2,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_226qhzfqjmvtiug2i",
+      "_id": "local_qkprvtyt2mvtiv19w",
       "capacity": 65,
       "type": "Classroom",
       "schedule": [
@@ -168,11 +168,11 @@
       "roomNumber": "D1-305",
       "building": "Block D1",
       "floor": 3,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_mrt277kosmvtiug2i",
+      "_id": "local_5m3jz2fsrmvtiv19w",
       "capacity": 55,
       "type": "Classroom",
       "schedule": [],
@@ -183,11 +183,11 @@
       "roomNumber": "D1-402",
       "building": "Block D1",
       "floor": 4,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_i16irhlrymvtiug2i",
+      "_id": "local_6pet7w10jmvtiv19w",
       "capacity": 70,
       "type": "Lecture Hall",
       "schedule": [
@@ -220,11 +220,11 @@
       "roomNumber": "D2-102",
       "building": "Block D2",
       "floor": 1,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_4ce0g4jk2mvtiug2i",
+      "_id": "local_383rc4vm4mvtiv19w",
       "capacity": 55,
       "type": "Classroom",
       "schedule": [
@@ -250,11 +250,11 @@
       "roomNumber": "D2-208",
       "building": "Block D2",
       "floor": 2,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_lcqnao61amvtiug2i",
+      "_id": "local_kofziagowmvtiv19w",
       "capacity": 50,
       "type": "Seminar Hall",
       "schedule": [],
@@ -265,11 +265,11 @@
       "roomNumber": "D2-312",
       "building": "Block D2",
       "floor": 3,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_rh1gkejkgmvtiug2i",
+      "_id": "local_gtkx6n9svmvtiv19w",
       "capacity": 65,
       "type": "Classroom",
       "schedule": [
@@ -295,11 +295,11 @@
       "roomNumber": "D3-104",
       "building": "Block D3",
       "floor": 1,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_eq5psmlw8mvtiug2i",
+      "_id": "local_06eqcj4vdmvtiv19w",
       "capacity": 60,
       "type": "Classroom",
       "schedule": [
@@ -325,11 +325,11 @@
       "roomNumber": "D3-206",
       "building": "Block D3",
       "floor": 2,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_kzgh4ffmimvtiug2i",
+      "_id": "local_qn5ms9u3omvtiv19w",
       "capacity": 45,
       "type": "Classroom",
       "schedule": [],
@@ -340,11 +340,11 @@
       "roomNumber": "D3-310",
       "building": "Block D3",
       "floor": 3,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_wnvctk2ojmvtiug2i",
+      "_id": "local_btiyl3aznmvtiv19w",
       "capacity": 90,
       "type": "Lecture Hall",
       "schedule": [
@@ -363,11 +363,11 @@
       "roomNumber": "D4-001",
       "building": "Block D4",
       "floor": 0,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_rj69kqtlumvtiug2i",
+      "_id": "local_012jqwq6ymvtiv19w",
       "capacity": 50,
       "type": "Classroom",
       "schedule": [],
@@ -378,11 +378,11 @@
       "roomNumber": "D4-105",
       "building": "Block D4",
       "floor": 1,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_oxst273ccmvtiug2i",
+      "_id": "local_nivnhwxfmmvtiv19w",
       "capacity": 60,
       "type": "Classroom",
       "schedule": [
@@ -401,11 +401,11 @@
       "roomNumber": "D4-208",
       "building": "Block D4",
       "floor": 2,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     },
     {
-      "_id": "local_hwlt1rw2pmvtiug2i",
+      "_id": "local_7plxawfbbmvtiv19w",
       "capacity": 150,
       "type": "Seminar Hall",
       "schedule": [],
@@ -416,13 +416,13 @@
       "roomNumber": "LIB-G1",
       "building": "Central Library",
       "floor": 0,
-      "createdAt": "2026-10-29T12:30:35.226Z",
-      "updatedAt": "2026-10-29T12:30:35.226Z"
+      "createdAt": "2026-10-29T12:31:02.708Z",
+      "updatedAt": "2026-10-29T12:31:02.708Z"
     }
   ],
   "faculty": [
     {
-      "_id": "local_9tuaq9ln3mvtiug2j",
+      "_id": "local_gre1deokzmvtiv19y",
       "name": "Dr. Rohit Sharma",
       "designation": "Associate Professor & Academic Coordinator (AIT-CSE)",
       "department": "Apex Institute of Technology - CSE",
@@ -437,10 +437,10 @@
         "Algorithms Design",
         "Discrete Math"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_tlriu88tqmvtiug2j",
+      "_id": "local_dqft5snurmvtiv19y",
       "name": "Dr. Vikas Singla",
       "designation": "Head of Department (HOD) - AIT CSE",
       "department": "Apex Institute of Technology - CSE",
@@ -455,10 +455,10 @@
         "Distributed Systems",
         "Software Architectures"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_kf10m749imvtiug2j",
+      "_id": "local_mj85c2i4omvtiv19y",
       "name": "Er. Pooja Sharma",
       "designation": "Assistant Professor & 3rd Year Class Mentor (AIT-CSE)",
       "department": "Apex Institute of Technology - CSE",
@@ -473,10 +473,10 @@
         "Cyber Defense",
         "Network Security"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_397p00xhumvtiug2j",
+      "_id": "local_3vxlpqsi4mvtiv19y",
       "name": "Dr. Naveen Kumar",
       "designation": "Cloud Computing & DevOps Lead (AIT)",
       "department": "AIT - Cloud & Big Data",
@@ -491,10 +491,10 @@
         "Database Engineering",
         "Microservices & K8s"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_t8324bnv9mvtiug2j",
+      "_id": "local_oyf8246c0mvtiv19y",
       "name": "Dr. Preeti Aggarwal",
       "designation": "Associate Professor & AI/ML Specialization Lead (AIT)",
       "department": "AIT - Artificial Intelligence & Data Science",
@@ -509,10 +509,10 @@
         "Deep Learning & Neural Networks",
         "Natural Language Processing"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_trdsvozhrmvtiug2j",
+      "_id": "local_5v0jqzlpymvtiv19y",
       "name": "Prof. Karan Gill",
       "designation": "Assistant Professor & Industry Capstone Project Lead",
       "department": "Apex Institute of Technology - CSE",
@@ -526,10 +526,10 @@
         "Full Stack Web Development (MERN)",
         "Capstone Project Phase 1 & 2"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_1qob860gumvtiug2j",
+      "_id": "local_fxz6s54wumvtiv19y",
       "name": "Mr. Rajneesh Sharma",
       "designation": "Controller of Examinations (COE Desk - AIT)",
       "department": "Examination Cell",
@@ -540,10 +540,10 @@
       "email": "coe.ait@cumail.in",
       "phone": "+91 98765 11107",
       "subjectsTaught": [],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_5w664nj5umvtiug2j",
+      "_id": "local_69d5baeefmvtiv19y",
       "name": "Ms. Manpreet Kaur",
       "designation": "Senior Student Care Officer (AIT Student Care Desk)",
       "department": "Student Care Department (SCD)",
@@ -554,12 +554,12 @@
       "email": "studentcare.ait@cumail.in",
       "phone": "+91 98765 11108",
       "subjectsTaught": [],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     }
   ],
   "issues": [
     {
-      "_id": "local_c8idzvmymmvtiug2j",
+      "_id": "local_gpb4l17usmvtiv19y",
       "category": "Academic",
       "issueTitle": "CUIMS Attendance Shortage (<75%) & Medical Leave Exemption (AIT-CSE)",
       "description": "Facing attendance freeze or below 75% threshold on CUIMS for AIT-CSE courses due to medical illness, hospitalization, or hackathon representation.",
@@ -581,10 +581,10 @@
         "CUIMS Medical Undertaking Form signed by Parent",
         "Physical CU Student ID Card photocopy"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_ts0543lsvmvtiug2j",
+      "_id": "local_7ikds4dm9mvtiv19y",
       "category": "Administrative",
       "issueTitle": "AIT High-Performance Workstation & Mac Lab Access Permission",
       "description": "Requesting off-hours access or account creation for GPU workstations, Apple Mac labs, or AI research clusters in Block D4.",
@@ -605,10 +605,10 @@
         "Valid CU Student ID Card",
         "Synopsis / Git Repo link of ongoing project"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_j994raiawmvtiug2j",
+      "_id": "local_7zwcq52f2mvtiv19y",
       "category": "Mentorship & Career",
       "issueTitle": "AIT Industry Capstone Project Guide Allocation & Internship NOC",
       "description": "Assigning industry project mentors, capstone approvals, or obtaining university NOC for off-campus summer internships.",
@@ -629,10 +629,10 @@
         "Parent Undertaking Letter",
         "CUIMS Current CGPA Grade Sheet"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_f9orjd4fbmvtiug2j",
+      "_id": "local_sdkwts2rxmvtiv19y",
       "category": "Examination",
       "issueTitle": "Re-appear / Backlog Exam Form Clearance & Hall Ticket Unlock",
       "description": "Issues with re-appear exam registration, clash in semester timetable, or hall ticket locked on CUIMS due to fee verification.",
@@ -653,10 +653,10 @@
         "Exam Registration Printout",
         "Previous Semester Grade Sheet"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_pnb4ovy4fmvtiug2j",
+      "_id": "local_m46shv20tmvtiv19y",
       "category": "Administrative",
       "issueTitle": "CUIMS Password Reset & Campus Wi-Fi (802.1x) MAC Binding",
       "description": "Resetting forgotten credentials for CUIMS portal, Blackboard LMS, or registering laptop/phone MAC address for high-speed campus Wi-Fi.",
@@ -675,10 +675,10 @@
       "requiredDocuments": [
         "Physical Chandigarh University Student ID Card"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     },
     {
-      "_id": "local_91qaneppdmvtiug2j",
+      "_id": "local_m31xb5ca0mvtiv19y",
       "category": "Administrative",
       "issueTitle": "Bonafide / Character Certificate for Loan or Passport (AIT)",
       "description": "Needed for educational loans, passport verification, metro/bus student passes, or scholarship applications.",
@@ -699,7 +699,7 @@
         "Physical CU Student ID Card",
         "Latest Semester Fee Receipt copy"
       ],
-      "createdAt": "2026-10-29T12:30:35.227Z"
+      "createdAt": "2026-10-29T12:31:02.710Z"
     }
   ],
   "users": [
